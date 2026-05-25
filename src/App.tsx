@@ -1,5 +1,7 @@
+import Calculator from './components/Calculator'
+
 const App = () => {
-  return <h1>Calculadora</h1>
+  return <Calculator />
 }
 
 export default App
