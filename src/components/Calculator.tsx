@@ -43,7 +43,7 @@ const Calculator = () => {
     return (
         <div>
             <Display value={display} />
-            <Keypad onDigit={handleDigit} onOperator={handleOperator} />
+            <Keypad onDigit={handleDigit} onOperator={handleOperator} onEquals={handleEquals} />
         </div>
     )
 }
