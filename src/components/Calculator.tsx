@@ -8,6 +8,15 @@ const Calculator = () => {
     const [operator, setOperator] = useState<string | null>(null)
     const [waitingForNext, setWaitingForNext] = useState(false)
 
+
+    const formatResult = (n: number): string => {
+        if (n < 0) return 'ERROR'
+        if (n > 999999999) return 'ERROR'
+        const str = String(n)
+        if (str.length > 9) return str.slice(0, 9)
+        return str
+    }
+
     const handleDigit = (digit: string) => {
 
         if (waitingForNext) {
@@ -15,10 +24,15 @@ const Calculator = () => {
             setWaitingForNext(false)
         } else if (display === '0') {
             setDisplay(digit)
-        } else {
+        } else if (display.length >= 9) {
+            return
+        }
+
+        else {
             setDisplay(display + digit)
         }
     }
+
     const handleOperator = (op: string) => {
         setOperand(parseFloat(display))
         setOperator(op)
@@ -34,7 +48,7 @@ const Calculator = () => {
         if (operator === 'x') result = operand * current
         if (operator === '÷') result = operand / current
 
-        setDisplay(String(result))
+        setDisplay(formatResult(result))
         setOperand(null)
         setOperator(null)
         setWaitingForNext(true)
