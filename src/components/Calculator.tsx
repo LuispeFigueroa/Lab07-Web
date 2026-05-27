@@ -40,13 +40,14 @@ const Calculator = () => {
         setWaitingForNext(true)
     }
     const handleEquals = () => {
-        if (operand == null || operator === null) return
+        if (operand === null || operator === null) return
+
         const current = parseFloat(display)
         let result = 0
 
         if (operator === '+') result = operand + current
         if (operator === '-') result = operand - current
-        if (operator === 'x') result = operand * current
+        if (operator === '×') result = operand * current
         if (operator === '÷') result = operand / current
 
         setDisplay(formatResult(result))
@@ -54,12 +55,17 @@ const Calculator = () => {
         setOperator(null)
         setWaitingForNext(true)
     }
+    const handleClear = () => {
+        setDisplay('0')
+        setOperand(null)
+        setOperator(null)
+        setWaitingForNext(false)
+    }
 
     return (
         <div className="calculator">
             <Display value={display} />
-            <Keypad onDigit={handleDigit} onOperator={handleOperator} onEquals={handleEquals} />
-        </div>
+            <Keypad onDigit={handleDigit} onOperator={handleOperator} onEquals={handleEquals} onClear={handleClear} />        </div>
     )
 }
 export default Calculator
