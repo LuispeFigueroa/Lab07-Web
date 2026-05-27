@@ -13,12 +13,12 @@ const Keypad = ({ onDigit, onOperator, onEquals }: Props) => {
     return (
         <div>
             {OPERATORS.map((op) => (
-                <Button key={op} label={op} onClick={() => onOperator(op)} />
+                <Button key={op} label={op} onClick={() => onOperator(op)} variant="operator" />
             ))}
             {KEYS.map((key) => (
                 <Button key={key} label={key} onClick={() => onDigit(key)} />
             ))}
-            <Button label="=" onClick={onEquals} />
+            <Button label="=" onClick={onEquals} variant="equals" />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Display from './Display'
 import Keypad from './Keypad'
+import './Calculator.css'
 
 const Calculator = () => {
     const [display, setDisplay] = useState('0')
@@ -55,7 +56,7 @@ const Calculator = () => {
     }
 
     return (
-        <div>
+        <div className="calculator">
             <Display value={display} />
             <Keypad onDigit={handleDigit} onOperator={handleOperator} onEquals={handleEquals} />
         </div>
