@@ -7,7 +7,7 @@ interface Props {
 const Display = ({ value }: Props) => {
     return (
         <div className="display">
-            <span>{value}</span>
+            <span role="status">{value}</span>
         </div>
     )
 }
