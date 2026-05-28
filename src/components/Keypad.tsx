@@ -6,6 +6,7 @@ interface Props {
     onOperator: (op: string) => void
     onEquals: () => void
     onClear: () => void
+    onSign: () => void
 }
 
 const KEYS = [
@@ -32,10 +33,11 @@ const KEYS = [
 
 const OPERATORS = ['÷', '×', '-', '+', '%']
 
-const Keypad = ({ onDigit, onOperator, onEquals, onClear }: Props) => {
+const Keypad = ({ onDigit, onOperator, onEquals, onClear, onSign }: Props) => {
     const handle = (label: string, variant: string) => {
         if (variant === 'clear') return onClear()
         if (label === '=') return onEquals()
+        if (label === '+/-') return onSign()
         if (OPERATORS.includes(label) || label === '%') return onOperator(label)
         onDigit(label)
     }

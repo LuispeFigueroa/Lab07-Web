@@ -9,8 +9,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
-    background-size: 400% 400%;
+    background: linear-gradient(135deg, #1a0533, #3d0b0b, #6b2d00, #4a0a4a);
+    background-size: 600% 600%;
     animation: gradientShift 8s ease infinite;
     font-family: 'Segoe UI', sans-serif;
 }
